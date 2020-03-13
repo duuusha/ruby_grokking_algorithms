@@ -18,4 +18,21 @@ def sum_recursive(array)
   end
 end
 
-puts sum_recursive([1, 2, 3, 4])
+def max_number(array)
+  length = array.length
+  expected_max = array[0]
+  if length == 1
+    expected_max
+  else
+    max_num = max_number(array.slice!(1, length))
+    if expected_max > max_num
+      expected_max
+    else
+      max_num
+    end
+  end
+end
+
+puts max_number([1, 7, 3, 4])
+
+# puts sum_recursive((1..10).to_a)
