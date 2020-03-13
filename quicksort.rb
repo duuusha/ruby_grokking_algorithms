@@ -1,5 +1,4 @@
-sample_array = [2, 5, 7]
-
+# frozen_string_literal: true
 def sum(array)
   index = 0
   sum = 0
@@ -10,4 +9,13 @@ def sum(array)
   sum
 end
 
-puts sum(sample_array)
+def sum_recursive(array)
+  length = array.length
+  if length == 1
+    array[0]
+  else
+    array[0] + sum_recursive(array.slice!(1, length))
+  end
+end
+
+puts sum_recursive([1, 2, 3, 4])
