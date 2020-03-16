@@ -33,6 +33,25 @@ def max_number(array)
   end
 end
 
-puts max_number([1, 7, 3, 4])
+def quick_sort(array)
+  if array.length < 2
+    array
+  else
+    pivot = array[0]
+    less = []
+    greater = []
+    array.each do |element|
+      if element < pivot
+        less << element
+      elsif element > pivot
+        greater << element
+      end
+    end
 
+    quick_sort(less) + [pivot] + quick_sort(greater)
+  end
+end
+
+puts quick_sort([3, 1, 7, 5])
+# puts max_number([1, 7, 3, 4])
 # puts sum_recursive((1..10).to_a)
